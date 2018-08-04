@@ -34,6 +34,7 @@ def home():
     return 'hello'
 
 @app.route("/process_chat", methods = ['GET', 'POST'])
+@cross_origin()
 def chat():
     return process_chat(request.data)
 

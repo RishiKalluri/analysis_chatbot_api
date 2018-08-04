@@ -1,12 +1,13 @@
 from flask import Flask, request, jsonify, make_response, render_template
-import flask_cors import CORS, cross_origin
 import json
 import dialogflow_v2 as dialogflow
 import datetime
 import os
 import sys
 import apiai
-#----------HELPER FUNCTIONS----------------
+
+# #----------HELPER FUNCTIONS----------------
+
 DEV_KEY = "7e88db9b2e3e42dc85146cf7e571aa01"
 
 def parse_incoming_text(incoming_request):

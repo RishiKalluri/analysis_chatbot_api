@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, make_response, render_template
+import flask_cors import CORS, cross_origin
 import json
 import dialogflow_v2 as dialogflow
 import datetime
@@ -25,6 +26,8 @@ def process_chat(chat_input):
 
 # #----------API FRAMEWORK/PROCCESSING-------------------
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route("/")
 def home():

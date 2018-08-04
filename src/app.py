@@ -31,7 +31,7 @@ def home():
     return 'hello'
 
 @app.route("/process_chat", methods = ['GET', 'POST'])
-def home():
+def chat():
     return process_chat(request.data)
 
 if __name__ == '__main__':

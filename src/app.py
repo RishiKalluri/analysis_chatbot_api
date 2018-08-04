@@ -30,7 +30,7 @@ app = Flask(__name__)
 def home():
     return 'hello'
 
-@app.route("/process_chat", methods = ['POST'])
+@app.route("/process_chat", methods = ['GET', 'POST'])
 def home():
     return process_chat(request.data)
 

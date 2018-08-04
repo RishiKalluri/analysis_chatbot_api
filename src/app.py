@@ -21,20 +21,20 @@ def process_chat(chat_input):
 
     chat_response = chat_request.getresponse()
     response = make_response(json.loads(chat_response.read())['result']['fulfillment']['speech'])
+    header = response.headers
+    header['Access-Control-Allow-Origin'] = '*'
 
     return response
 
 # #----------API FRAMEWORK/PROCCESSING-------------------
 app = Flask(__name__)
-cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
+
 
 @app.route("/")
 def home():
     return 'hello'
 
 @app.route("/process_chat", methods = ['GET', 'POST'])
-@cross_origin()
 def chat():
     return process_chat(request.data)
 

@@ -26,6 +26,10 @@ def process_chat(chat_input):
 # #----------API FRAMEWORK/PROCCESSING-------------------
 app = Flask(__name__)
 
+@app.route("/")
+def home():
+    return 'hello'
+
 @app.route("/process_chat", methods = ['POST'])
 def home():
     return process_chat(request.data)

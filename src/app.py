@@ -21,8 +21,6 @@ def process_chat(chat_input):
 
     chat_response = chat_request.getresponse()
     response = make_response(json.loads(chat_response.read())['result']['fulfillment']['speech'])
-    header = response.headers
-    header['Access-Control-Allow-Origin'] = '*'
 
     return response
 
